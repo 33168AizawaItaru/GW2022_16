@@ -1,12 +1,14 @@
-﻿<Window x:Class="BookSearch.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearch"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="TitleWindow" x:Class="BookSearch.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="400" Width="550">
+    <Grid Background="White">
+        <Button Name="login" Content="ログイン" FontSize="12" FontFamily="Yu Mincho" HorizontalAlignment="Left" Margin="222,267,0,0" VerticalAlignment="Top" Width="75" Background="#FF00FFAE" Click="login_Click"/>
+        <Button Name="endTile" Content="終了" FontSize="12" FontFamily="Yu Mincho" HorizontalAlignment="Left" Margin="222,323,0,0" VerticalAlignment="Top" Width="75" Background="#FF00FFAE" Click="endTile_Click"/>
     </Grid>
 </Window>
