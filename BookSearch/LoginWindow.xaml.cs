@@ -20,27 +20,33 @@ namespace BookSearch
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private NavigationService _navi;
         public LoginWindow()
         {
             InitializeComponent();
+            this.WindowStyle = WindowStyle.None;
         }
-
-        private List<Uri> _uriList = new List<Uri>() {
-            new Uri("Page1.xaml",UriKind.Relative),
-            //new Uri("Page2.xaml",UriKind.Relative),
-            //new Uri("Page3.xaml",UriKind.Relative),
-        };
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mw = new MainWindow();
+            mw.Show();
             LoginWindow1.Close();
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            var num = "1111";
+
+            if (InputId.Text == num && InputPass.Password == num)
+            {
+                MenuWindow menu = new MenuWindow();
+                menu.Show();
+                LoginWindow1.Close();
+            } else
+            {
+                MessageBox.Show("IDもしくはパスワードが違います。");
+                InputPass.Clear();
+            }
         }
     }
 }

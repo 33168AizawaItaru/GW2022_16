@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BookSearch
 {
     /// <summary>
-    /// Page1.xaml の相互作用ロジック
+    /// BookmarkPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class Page1 : Page
+    public partial class BookmarkPage : Page
     {
-        public Page1()
+        public BookmarkPage()
         {
             InitializeComponent();
         }

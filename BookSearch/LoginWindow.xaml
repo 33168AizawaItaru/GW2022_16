@@ -11,27 +11,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-
+        <Frame NavigationUIVisibility="Hidden" Name="myFrame" Width="340" />
         <Label Grid.Row="0" Content="Login" FontSize="50" Foreground="#FF4D00F3" Height="60" Width="140" Margin="101,40,101,0"
                VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="HGPSoeiKakupoptai" Background="White"/>
         <StackPanel Grid.Row="1" Height="90" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox Name="InputId" Background="AliceBlue"
-                     Height="30" Width="200" FontSize="20"
+                     Height="30" Width="200" FontSize="19"
                      VerticalAlignment="Top"/>
-            <TextBox x:Name="InputPass" Background="AliceBlue"
-                     Height="30" FontSize="20"
-                     Margin="0,30"/>
+            <PasswordBox x:Name="InputPass" Background="AliceBlue"
+                         Height="30" FontSize="19" 
+                         Margin="0,30"/>
         </StackPanel>
-        <Button Grid.Row="1" Name="Visible" Content="表示" 
-                Height="20" Width="30" Margin="0,30,20,32"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Button Grid.Row="2" Name="Return" Content="戻る" 
-                Height="20" Width="40" FontSize="12" Margin="10"
+        <Button Grid.Row="2" Name="Return" Content="戻る"
+                Height="30" Width="55" FontSize="13" Margin="5"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click"/>
         <Button Grid.Row="2" Name="Login" Content="ログイン" 
-                Height="20" Width="40" FontSize="12" Margin="10"
+                Height="30" Width="70" FontSize="13" Margin="5"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Login_Click"/>
     </Grid>
 </Window>

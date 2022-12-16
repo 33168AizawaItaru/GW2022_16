@@ -16,26 +16,13 @@ using System.Windows.Shapes;
 namespace BookSearch
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// SearchPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SearchPage : Page
     {
-        public MainWindow()
+        public SearchPage()
         {
             InitializeComponent();
-            this.WindowStyle = WindowStyle.None;
-        }
-
-        private void login_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow lw = new LoginWindow();
-            lw.Show();
-            TitleWindow.Close();
-        }
-
-        private void endTile_Click(object sender, RoutedEventArgs e)
-        {
-            TitleWindow.Close();
         }
     }
 }
