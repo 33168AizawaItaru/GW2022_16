@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookSearch"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="TitleWindow" x:Class="BookSearch.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="550">
+        Title="MainWindow" Height="400" Width="550" >
     <Grid Background="White">
         <Button Name="login" Content="ログイン" FontSize="12" FontFamily="Yu Mincho" HorizontalAlignment="Left" Margin="222,267,0,0" VerticalAlignment="Top" Width="75" Background="#FFB9F9E5" Click="login_Click" Foreground="#DDFF0000"/>
         <Button Name="endTile" Content="終了" FontSize="12" FontFamily="Yu Mincho" HorizontalAlignment="Left" Margin="222,323,0,0" VerticalAlignment="Top" Width="75" Background="#FFB9F9E5" Click="endTile_Click" Foreground="#DDFF0000"/>

@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="420" Width="800">
+        Title="MenuWindow" Height="350" Width="600" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="195"/>
-            <RowDefinition Height="195"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="395"/>
-            <ColumnDefinition Width="395"/>
+            <ColumnDefinition Width="295"/>
+            <ColumnDefinition Width="295"/>
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="0" Grid.Row="0" Name="Search" Content="検索"
                 Height="100" Width="200" Margin="20"
-                VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Search_Click"/>
         <Button Grid.Column="0" Grid.Row="1" Name="History" Content="履歴"
                 Height="100" Width="200" Margin="20"
-                VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                VerticalAlignment="Top" HorizontalAlignment="Right" Click="History_Click"/>
         <Button Grid.Column="1" Grid.Row="0" Name="Bookmark" Content="ブックマーク"
                 Height="100" Width="200" Margin="20"
-                VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Bookmark_Click"/>
         <Button Grid.Column="1" Grid.Row="1" Name="Logout" Content="ログアウト"
                 Height="100" Width="200" Margin="20"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Click="Logout_Click"/>

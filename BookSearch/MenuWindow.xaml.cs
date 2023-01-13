@@ -22,12 +22,34 @@ namespace BookSearch
         public MenuWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
             mw.Show();
+            Menu.Close();
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow search = new SearchWindow();
+            search.Show();
+            Menu.Close();
+        }
+
+        private void Bookmark_Click(object sender, RoutedEventArgs e)
+        {
+            BookmarkWindow bookmark = new BookmarkWindow();
+            bookmark.Show();
+            Menu.Close();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow history = new HistoryWindow();
+            history.Show();
             Menu.Close();
         }
     }

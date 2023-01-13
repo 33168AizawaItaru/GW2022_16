@@ -24,6 +24,7 @@ namespace BookSearch
         {
             InitializeComponent();
             this.WindowStyle = WindowStyle.None;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
@@ -44,7 +45,7 @@ namespace BookSearch
                 LoginWindow1.Close();
             } else
             {
-                MessageBox.Show("IDもしくはパスワードが違います。");
+                MessageBox.Show("ID、もしくはパスワードが違います。");
                 InputPass.Clear();
             }
         }

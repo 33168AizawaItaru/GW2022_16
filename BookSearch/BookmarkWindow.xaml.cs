@@ -10,19 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BookSearch
 {
     /// <summary>
-    /// SearchPage.xaml の相互作用ロジック
+    /// BookmarkWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class SearchPage : Page
+    public partial class BookmarkWindow : Window
     {
-        public SearchPage()
+        public BookmarkWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        private void return_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
+            menu.Show();
+            this.Close();
         }
     }
 }

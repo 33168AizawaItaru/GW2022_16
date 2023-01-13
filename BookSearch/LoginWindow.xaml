@@ -5,30 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="350" Width="350">
+        Title="LoginWindow" Height="350" Width="350" WindowStyle="None">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
+        
         <Frame NavigationUIVisibility="Hidden" Name="myFrame" Width="340" />
         <Label Grid.Row="0" Content="Login" FontSize="50" Foreground="#FF4D00F3" Height="60" Width="140" Margin="101,40,101,0"
                VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="HGPSoeiKakupoptai" Background="White"/>
+        
         <StackPanel Grid.Row="1" Height="90" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox Name="InputId" Background="AliceBlue"
-                     Height="30" Width="200" FontSize="19"
-                     VerticalAlignment="Top"/>
+                     Height="30" Width="200" FontSize="17"
+                     VerticalAlignment="Top" Text="1111"/>
             <PasswordBox x:Name="InputPass" Background="AliceBlue"
-                         Height="30" FontSize="19" 
-                         Margin="0,30"/>
+                         Height="30" FontSize="17" 
+                         Margin="0,30" Password="1111"/>
         </StackPanel>
+        
         <Button Grid.Row="2" Name="Return" Content="戻る"
-                Height="30" Width="55" FontSize="13" Margin="5"
+                Height="30" Width="55" FontSize="13" Margin="10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click"/>
         <Button Grid.Row="2" Name="Login" Content="ログイン" 
-                Height="30" Width="70" FontSize="13" Margin="5"
+                Height="30" Width="70" FontSize="13" Margin="10"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Login_Click"/>
     </Grid>
 </Window>
