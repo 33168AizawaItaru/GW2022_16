@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,7 +17,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static BookSearch.RakutenApi;
 using static BookSearch.SearchResult;
-using static BookSearch.SearchConnect;
 
 namespace BookSearch
 {
@@ -25,10 +25,10 @@ namespace BookSearch
     /// </summary>
     public partial class SearchWindow : Window
     {
-        SearchConnect sc = new SearchConnect();
-        WebClient wc = new WebClient(){Encoding = Encoding.UTF8};
+        
+        WebClient wc = new WebClient() { Encoding = Encoding.UTF8 };
         string dString;
-
+        string title;
 
         public SearchWindow()
         {
@@ -45,27 +45,38 @@ namespace BookSearch
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new SearchConnect();
-            DataContext = sc;
+            title = text.Text;
+            var dataList = new ObservableCollection<List>();
+
+            var url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + title + "&applicationId=1074422515641226717";
+            dString = wc.DownloadString(url);
+            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
             if (text.Text.Count() < 1)
             {
                 MessageBox.Show("タイトルが入力されていません。");
-            } else
+            }else
             {
-                var url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&applicationId=1074422515641226717.json";
+                var window = new SearchResult();
+                window.title.Text = text.Text;
 
-                dString = wc.DownloadString(url);
-                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                for (int i = 0; i < json.hits; i++)
+                {
 
-                var betweenText = json.Items[0].Items.titleKana;
-
-                sc.titleInput = betweenText;
-
-                SearchResult sr = new SearchResult();
-                sr.Show();
-                Search.Close();
+                }
             }
         }
+
+        private void decision_Click(object sender, RoutedEventArgs e)
+        {
+            SearchResult sr = new SearchResult();
+            sr.Show();
+            Search.Close();
+        }
+    }
+
+    class Book
+    {
+        public object Title { get; set; }
     }
 }

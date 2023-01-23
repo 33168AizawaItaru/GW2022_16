@@ -12,7 +12,7 @@ namespace BookSearch
         public class Rootobject
         {
             public object[] GenreInformation { get; set; }
-            public Item[] Items { get; set; }
+            public Items[] Items { get; set; }
             public int carrier { get; set; }
             public int count { get; set; }
             public int first { get; set; }
@@ -22,12 +22,12 @@ namespace BookSearch
             public int pageCount { get; set; }
         }
 
-        public class Item
+        public class Items
         {
-            public Item1 Items { get; set; }
+            public Item Item { get; set; }
         }
 
-        public class Item1
+        public class Item
         {
             public string affiliateUrl { get; set; }
             public string author { get; set; }
@@ -60,5 +60,6 @@ namespace BookSearch
             public string title { get; set; }
             public string titleKana { get; set; }
         }
+
     }
 }
