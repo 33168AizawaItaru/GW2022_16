@@ -23,7 +23,7 @@
         <TextBox Name="text" Grid.Row="0" Height="50" Width="300" Margin="0,0,0,10"
                  VerticalAlignment="Bottom" HorizontalAlignment="Center"
                  FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
-                 BorderThickness="0,0,0,1" BorderBrush="Black" Text="1"/>
+                 BorderThickness="0,0,0,1" BorderBrush="Black" TextChanged="text_TextChanged"/>
 
         <Button Name="search" Content="実行" Grid.Row="1" Height="30" Width="60"
                 HorizontalAlignment="Center" VerticalAlignment="Top" Click="search_Click"/>
@@ -31,13 +31,15 @@
         <Button Name="return" Content="戻る" Grid.Row="2" Height="30" Width="60" Margin="10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
 
-        <DataGrid Name="titleList" Grid.Row="2" Height="350" Width="300" Margin="0,20,0,0"
-                  AutoGenerateColumns="False" 
-                  HorizontalAlignment="Center" VerticalAlignment="Top">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView Name="list" Grid.Row="2" Height="300" Width="300" Margin="0,20,0,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="タイトル" DisplayMemberBinding="{Binding Title}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+            
 
         <Button Name="decision" Content="検索" Grid.Row="2" Height="30" Width="60" Margin="0,0,0,10"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="decision_Click"/>

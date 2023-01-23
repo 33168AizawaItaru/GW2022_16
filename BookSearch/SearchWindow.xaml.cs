@@ -25,7 +25,7 @@ namespace BookSearch
     /// </summary>
     public partial class SearchWindow : Window
     {
-        
+        ObservableCollection<Book> books = new ObservableCollection<Book>();
         WebClient wc = new WebClient() { Encoding = Encoding.UTF8 };
         string dString;
         string title;
@@ -46,32 +46,56 @@ namespace BookSearch
         private void search_Click(object sender, RoutedEventArgs e)
         {
             title = text.Text;
-            var dataList = new ObservableCollection<List>();
+            if (list.Items.Count > 0)
+            {
+                
+            }
 
-            var url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + title + "&applicationId=1074422515641226717";
-            dString = wc.DownloadString(url);
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
             if (text.Text.Count() < 1)
             {
                 MessageBox.Show("タイトルが入力されていません。");
             }else
             {
+                var url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + title + "&applicationId=1074422515641226717";
+                dString = wc.DownloadString(url);
+                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+
                 var window = new SearchResult();
                 window.title.Text = text.Text;
 
                 for (int i = 0; i < json.hits; i++)
                 {
+                    books.Add(new Book() { Title = json.Items[i].Item.title });
+                    
+                }
 
+                foreach (var item in books)
+                {
+                    list.Items.Add(item);
                 }
             }
         }
 
         private void decision_Click(object sender, RoutedEventArgs e)
         {
+
+
             SearchResult sr = new SearchResult();
             sr.Show();
             Search.Close();
+        }
+
+        private void text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!(text.Text == null))
+            {
+                if (list.Items.Count > 0)
+                {
+                    list.Items.Clear();
+                    books.Clear();
+                }
+            }
         }
     }
 
