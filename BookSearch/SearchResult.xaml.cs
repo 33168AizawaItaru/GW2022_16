@@ -24,7 +24,11 @@ namespace BookSearch
     public partial class SearchResult : Window
     {
         WebClient wc = new WebClient() { Encoding = Encoding.UTF8 };
+        string url;
         string dString;
+        Rootobject json;
+        string pass;
+
         public SearchResult()
         {
             InitializeComponent();
@@ -35,17 +39,22 @@ namespace BookSearch
         {
             SearchWindow search = new SearchWindow();
             search.Show();
-            this.Close();
+            Result.Close();
+        }
+
+        public void passTitle(string strData)
+        {
+            pass = strData;
         }
 
         public string Window2 { get; set; }
 
         private void Result_Loaded(object sender, RoutedEventArgs e)
         {
-            var url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&applicationId=1074422515641226717";
+            url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + pass + "&applicationId=1074422515641226717";
 
             dString = wc.DownloadString(url);
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+            json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
             SearchConnect sc = new SearchConnect();
             DataContext = sc;
