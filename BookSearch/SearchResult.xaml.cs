@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -28,6 +29,10 @@ namespace BookSearch
         string dString;
         Rootobject json;
         string pass;
+        BitmapImage m_bitmap = null;
+        infosys202215DataSet infosys202215DataSet;
+        infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
+        CollectionViewSource bookMarkViewSource;
 
         public SearchResult()
         {
@@ -40,6 +45,22 @@ namespace BookSearch
             SearchWindow search = new SearchWindow();
             search.Show();
             Result.Close();
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            DataRow dr = (DataRow)infosys202215DataSet.BookMark.NewRow();
+            dr[1] = title.Text;
+            dr[2] = subTitle.Text;
+            dr[3] = author.Text;
+            dr[4] = publisherName.Text;
+            dr[5] = salesDate.Text;
+            dr[6] = itemPrice.Text;
+            dr[7] = reviewAverage.Text;
+            dr[8] = reviewCount.Text;
+
+            infosys202215DataSet.BookMark.Rows.Add(dr);
+            BookMarkTableAdapter.Update(infosys202215DataSet.BookMark);
         }
 
         public void passTitle(string strData)
@@ -56,32 +77,51 @@ namespace BookSearch
             dString = wc.DownloadString(url);
             json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
-            SearchConnect sc = new SearchConnect();
-            DataContext = sc;
+            try
+            {
+                title.Text = json.Items[0].Item.title;
 
-            var betweenTitle = json.Items[0].Item.title;
-            sc.titleInput = betweenTitle;
+                subTitle.Text = json.Items[0].Item.subTitle;
 
-            var betweenSubTitle = json.Items[0].Item.subTitle;
-            sc.subTitleInput = betweenSubTitle;
+                author.Text = json.Items[0].Item.author;
 
-            var betweenAuthor = json.Items[0].Item.author;
-            sc.authorInput = betweenAuthor;
+                publisherName.Text = json.Items[0].Item.publisherName;
 
-            var betweenPublisherName = json.Items[0].Item.publisherName;
-            sc.publisherNameInput = betweenPublisherName;
+                salesDate.Text = json.Items[0].Item.salesDate;
 
-            var betweenSalesDate = json.Items[0].Item.salesDate;
-            sc.salesDateInput = betweenSalesDate;
+                itemPrice.Text = json.Items[0].Item.itemPrice.ToString();
 
-            var betweenItemPrice = json.Items[0].Item.itemPrice;
-            sc.itemPriceInput = betweenItemPrice;
+                reviewAverage.Text = json.Items[0].Item.reviewAverage;
 
-            var betweenReviewAverage = json.Items[0].Item.reviewAverage;
-            sc.reviewAverageInput = betweenReviewAverage;
+                reviewCount.Text = json.Items[0].Item.reviewCount.ToString();
+                
 
-            var betweenReviewCount = json.Items[0].Item.reviewCount;
-            sc.reviewCountInput = betweenReviewCount;
+                var betweenPicture = json.Items[0].Item.largeImageUrl;
+                var url = betweenPicture.Replace("?", "　");
+                var index = url.IndexOf("　");
+                var pictureUrl = url.Substring(0, index);
+
+                var path = pictureUrl;
+
+                m_bitmap = new BitmapImage();
+                m_bitmap.BeginInit();
+                m_bitmap.UriSource = new Uri(path);
+                m_bitmap.EndInit();
+                picture.Source = m_bitmap;
+            } catch (Exception)
+            {
+                MessageBox.Show("検索出来ません");
+                SearchWindow search = new SearchWindow();
+                Result.Close();
+                search.Show();
+            }
+
+            infosys202215DataSet = ((BookSearch.infosys202215DataSet)(this.FindResource("infosys202215DataSet")));
+            // テーブル BookMark にデータを読み込みます。必要に応じてこのコードを変更できます。
+            BookMarkTableAdapter = new BookSearch.infosys202215DataSetTableAdapters.BookMarkTableAdapter();
+            BookMarkTableAdapter.Fill(infosys202215DataSet.BookMark);
+            bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
+            bookMarkViewSource.View.MoveCurrentToFirst();
         }
     }
 }

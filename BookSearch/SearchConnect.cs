@@ -17,6 +17,6 @@ namespace BookSearch
         public int itemPriceInput { get; set; }
         public string reviewAverageInput { get; set; }
         public int reviewCountInput { get; set; }
-        public string largeImageUrlInput { get; set; }
+        public string urlInput { get; set; }
     }
 }

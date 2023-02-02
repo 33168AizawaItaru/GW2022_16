@@ -36,7 +36,6 @@ namespace BookSearch
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            list.ColumnHeader.Rows[0].Height = 90;
         }
 
         private void return_Click(object sender, RoutedEventArgs e)

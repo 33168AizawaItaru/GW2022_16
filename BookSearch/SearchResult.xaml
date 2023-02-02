@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
-        Title="SearchResult" Height="510" Width="500" WindowStyle="None" Loaded="Result_Loaded"
-        
-        >
-    
-    
-    <Grid>
+        ResizeMode="NoResize"
+        Title="SearchResult" Height="510" Width="500" WindowStyle="None" Loaded="Result_Loaded">
+
+    <Window.Resources>
+        <local:infosys202215DataSet x:Key="infosys202215DataSet"/>
+        <CollectionViewSource x:Key="bookMarkViewSource" Source="{Binding BookMark, Source={StaticResource infosys202215DataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource bookMarkViewSource}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
@@ -22,59 +23,59 @@
 
         <Label Name="result" Content="検索結果" 
                VerticalAlignment="Top" HorizontalAlignment="Center"
-               Grid.Row="0" Height="30" Width="70" Margin="0,10,0,0"
+               Grid.Row="0" Height="30" Width="70" Margin="215,10,215,0"
                FontSize="15" FontFamily="Yu Gothic"/>
 
-        <TextBox Name="title" Text="{Binding titleInput}" Grid.Row="0" Height="30" Width="300" Margin="0,0,0,10"
-                 FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="title"  Grid.Row="0" Height="30" Width="300" Margin="100,0,100,10"
+                 FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                  BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                  VerticalAlignment="Bottom" HorizontalAlignment="Center" IsReadOnly="True"/>
         <Label Content="タイトル" Grid.Row="0" Height="25" Width="80" Margin="10,0,0,10"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
-        <TextBox Name="subTitle" Text="{Binding subTitleInput}" Grid.Row="1" Height="30" Width="300" Margin="0,10,0,0"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="subTitle" Grid.Row="1" Height="30" Width="300" Margin="100,10,100,0"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                VerticalAlignment="Top" HorizontalAlignment="Center" IsReadOnly="True"/>
         <Label Content="サブタイトル" Grid.Row="1" Height="25" Width="80" Margin="10,10,0,0"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-        <TextBox Name="author" Text="{Binding authorInput}" Grid.Row="1" Height="30" Width="300" Margin="0,0,0,10"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="author" Grid.Row="1" Height="30" Width="300" Margin="100,0,100,10"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                VerticalAlignment="Bottom" HorizontalAlignment="Center" IsReadOnly="True"/>
         <Label Content="著者" Grid.Row="1" Height="25" Width="80" Margin="10,0,0,10"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
-        <TextBox Name="publisherName" Text="{Binding publisherNameInput}" Grid.Row="2" Height="30" Width="300" Margin="0,10,0,0"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="publisherName" Grid.Row="2" Height="30" Width="300" Margin="100,10,100,0"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
-               VerticalAlignment="Top" HorizontalAlignment="Center" IsReadOnly="True"/>
+               VerticalAlignment="Top" HorizontalAlignment="Center" IsReadOnly="True" Grid.RowSpan="2"/>
         <Label Content="出版社" Grid.Row="2" Height="25" Width="80" Margin="10,10,0,0"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
-               VerticalAlignment="Top" HorizontalAlignment="Left"/>
+               VerticalAlignment="Top" HorizontalAlignment="Left" Grid.RowSpan="2"/>
 
-        <TextBox Name="salesDate" Text="{Binding salesDateInput}" Grid.Row="2" Height="30" Width="300" Margin="0,0,0,10"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="salesDate" Grid.Row="2" Height="30" Width="300" Margin="100,0,100,10"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                VerticalAlignment="Bottom" HorizontalAlignment="Center" IsReadOnly="True"/>
         <Label Content="発売日" Grid.Row="2" Height="25" Width="80" Margin="10,0,0,10"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-
-        <TextBox Name="itemPrice" Text="{Binding itemPriceInput}" Grid.Row="3" Height="30" Width="300" Margin="0,10,0,0"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        
+        <TextBox Name="itemPrice" Grid.Row="3" Height="30" Width="80" Margin="100,10,0,0"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
-               VerticalAlignment="Top" HorizontalAlignment="Center" IsReadOnly="True"/>
+               VerticalAlignment="Top" HorizontalAlignment="Left" IsReadOnly="True"/>
         <Label Content="価格" Grid.Row="3" Height="25" Width="80" Margin="10,10,0,0"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-        <TextBox Name="reviewAverage" Text="{Binding reviewAverageInput}" Grid.Row="3" Height="30" Width="80" Margin="100,0,0,10"
-               FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
+        <TextBox Name="reviewAverage" Grid.Row="3" Height="30" Width="80" Margin="100,0,0,10"
+               FontSize="16" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                VerticalAlignment="Bottom" HorizontalAlignment="Left" IsReadOnly="True"/>
         <Label Content="レビュー平均" Grid.Row="3" Height="25" Width="80" Margin="10,0,0,10"
@@ -84,7 +85,7 @@
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
-        <TextBox Name="reviewCount" Text="{Binding reviewCountInput}" Grid.Row="4" Height="30" Width="80" Margin="100,10,0,0"
+        <TextBox Name="reviewCount" Grid.Row="4" Height="30" Width="80" Margin="100,10,0,0"
                FontSize="17" FontFamily="Yu Gothic" VerticalContentAlignment="Bottom"
                BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Left"
                VerticalAlignment="Top" HorizontalAlignment="Left" IsReadOnly="True"/>
@@ -95,12 +96,18 @@
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-        <Label Grid.Row="3" Grid.RowSpan="2" Background="AliceBlue"
-               Height="100" Width="110" Margin="140,30,0,0"/>
-        <Image Name="picture" Grid.Row="3" Grid.RowSpan="2"
-               Height="90" Width="100" Margin="140,30,0,0"/>
+        <Label Grid.Row="3" Grid.RowSpan="2" Background="#FFFEF9"
+               Height="150" Width="150" Margin="240,20,110,30">
+            <Image x:Name="picture" Height="140" Width="140"/>
+        </Label>
 
-        <Button Name="return" Content="戻る" Grid.Row="4" Height="30" Width="60" Margin="10"
+        <Button Name="return" Content="戻る" Grid.Row="4" Height="30" Width="60" Margin="10,0,0,10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
+
+        <Label Content="ブックマークに" Grid.Row="4" Height="25" Width="90" Margin="0,0,10,38"
+               FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Button Name="add" Content="追加" Grid.Row="4" Height="30" Width="60" Margin="0,0,25,10"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="add_Click"/>
     </Grid>
 </Window>

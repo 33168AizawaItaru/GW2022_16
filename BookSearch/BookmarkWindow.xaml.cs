@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,10 @@ namespace BookSearch
     /// </summary>
     public partial class BookmarkWindow : Window
     {
+        infosys202215DataSet infosys202215DataSet;
+        infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
+        CollectionViewSource bookMarkViewSource;
+
         public BookmarkWindow()
         {
             InitializeComponent();
@@ -30,6 +35,30 @@ namespace BookSearch
             MenuWindow menu = new MenuWindow();
             menu.Show();
             this.Close();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataRowView drv = (DataRowView)bookMarkViewSource.View.CurrentItem;
+                drv.Delete();
+                BookMarkTableAdapter.Update(infosys202215DataSet.BookMark);
+            } catch (Exception)
+            {
+            }
+        }
+
+        
+
+        private void Bookmark_Loaded(object sender, RoutedEventArgs e)
+        {
+            infosys202215DataSet = ((BookSearch.infosys202215DataSet)(this.FindResource("infosys202215DataSet")));
+            // テーブル BookMark にデータを読み込みます。必要に応じてこのコードを変更できます。
+            BookMarkTableAdapter = new BookSearch.infosys202215DataSetTableAdapters.BookMarkTableAdapter();
+            BookMarkTableAdapter.Fill(infosys202215DataSet.BookMark);
+            bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
+            bookMarkViewSource.View.MoveCurrentToFirst();
         }
     }
 }
