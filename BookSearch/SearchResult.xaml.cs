@@ -34,6 +34,10 @@ namespace BookSearch
         infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
         CollectionViewSource bookMarkViewSource;
 
+        infosys202215DataSet1 infosys202215DataSet1;
+        infosys202215DataSet1TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
+        CollectionViewSource bookHistoryViewSource;
+
         public SearchResult()
         {
             InitializeComponent();
@@ -80,29 +84,19 @@ namespace BookSearch
             try
             {
                 title.Text = json.Items[0].Item.title;
-
                 subTitle.Text = json.Items[0].Item.subTitle;
-
                 author.Text = json.Items[0].Item.author;
-
                 publisherName.Text = json.Items[0].Item.publisherName;
-
                 salesDate.Text = json.Items[0].Item.salesDate;
-
                 itemPrice.Text = json.Items[0].Item.itemPrice.ToString();
-
                 reviewAverage.Text = json.Items[0].Item.reviewAverage;
-
                 reviewCount.Text = json.Items[0].Item.reviewCount.ToString();
-                
 
                 var betweenPicture = json.Items[0].Item.largeImageUrl;
                 var url = betweenPicture.Replace("?", "　");
                 var index = url.IndexOf("　");
                 var pictureUrl = url.Substring(0, index);
-
                 var path = pictureUrl;
-
                 m_bitmap = new BitmapImage();
                 m_bitmap.BeginInit();
                 m_bitmap.UriSource = new Uri(path);
@@ -122,6 +116,26 @@ namespace BookSearch
             BookMarkTableAdapter.Fill(infosys202215DataSet.BookMark);
             bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
             bookMarkViewSource.View.MoveCurrentToFirst();
+
+            infosys202215DataSet1 = ((BookSearch.infosys202215DataSet1)(this.FindResource("infosys202215DataSet1")));
+            // テーブル BookHistory にデータを読み込みます。必要に応じてこのコードを変更できます。
+            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet1TableAdapters.BookHistoryTableAdapter();
+            BookHistoryTableAdapter.Fill(infosys202215DataSet1.BookHistory);
+            bookHistoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookHistoryViewSource")));
+            bookHistoryViewSource.View.MoveCurrentToFirst();
+
+            DataRow dr = (DataRow)infosys202215DataSet1.BookHistory.NewRow();
+            dr[1] = title.Text;
+            dr[2] = subTitle.Text;
+            dr[3] = author.Text;
+            dr[4] = publisherName.Text;
+            dr[5] = salesDate.Text;
+            dr[6] = itemPrice.Text;
+            dr[7] = reviewAverage.Text;
+            dr[8] = reviewCount.Text;
+
+            infosys202215DataSet1.BookHistory.Rows.Add(dr);
+            BookHistoryTableAdapter.Update(infosys202215DataSet1.BookHistory);
         }
     }
 }

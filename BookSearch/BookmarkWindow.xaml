@@ -17,20 +17,20 @@
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
         <Button Name="delete" Content="削除" Height="30" Width="60" Margin="0,0,10,10"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"/>
-        <DataGrid x:Name="bookMarkDataGrid" Height="280" Width="680" Margin="0,10,0,0"
+        <DataGrid x:Name="bookMarkDataGrid" Height="280" Width="780" Margin="0,20,0,0"
                   HorizontalAlignment="Center" VerticalAlignment="Top" EnableRowVirtualization="True"
-                  ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" SelectionMode="Single"
+                  ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected"
+                  AutoGenerateColumns="False" SelectionMode="Single"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="subTitleColumn" Binding="{Binding SubTitle}" Header="サブタイトル" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="publisherNameColumn" Binding="{Binding PublisherName}" Header="出版社" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="salesDateColumn" Binding="{Binding SalesDate}" Header="発売日" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="価格" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="reviewAverageColumn" Binding="{Binding ReviewAverage}" Header="レビュー平均" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="reviewCountColumn" Binding="{Binding ReviewCount}" Header="レビュー数" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="subTitleColumn" Binding="{Binding SubTitle}" Header="サブタイトル" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="publisherNameColumn" Binding="{Binding PublisherName}" Header="出版社" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="salesDateColumn" Binding="{Binding SalesDate}" Header="発売日" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="価格" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="reviewAverageColumn" Binding="{Binding ReviewAverage}" Header="レビュー平均" Width="auto" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="reviewCountColumn" Binding="{Binding ReviewCount}" Header="レビュー数" Width="auto" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

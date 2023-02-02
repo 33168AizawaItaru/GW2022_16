@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,10 @@ namespace BookSearch
     /// </summary>
     public partial class HistoryWindow : Window
     {
+        infosys202215DataSet1 infosys202215DataSet1;
+        infosys202215DataSet1TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
+        CollectionViewSource bookHistoryViewSource;
+
         public HistoryWindow()
         {
             InitializeComponent();
@@ -30,6 +35,29 @@ namespace BookSearch
             MenuWindow menu = new MenuWindow();
             menu.Show();
             this.Close();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataRowView drv = (DataRowView)bookHistoryViewSource.View.CurrentItem;
+                drv.Delete();
+                BookHistoryTableAdapter.Update(infosys202215DataSet1.BookHistory);
+            } catch (Exception)
+            {
+            }
+        }
+
+        private void History_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            infosys202215DataSet1 = ((BookSearch.infosys202215DataSet1)(this.FindResource("infosys202215DataSet1")));
+            // テーブル BookHistory にデータを読み込みます。必要に応じてこのコードを変更できます。
+            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet1TableAdapters.BookHistoryTableAdapter();
+            BookHistoryTableAdapter.Fill(infosys202215DataSet1.BookHistory);
+            bookHistoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookHistoryViewSource")));
+            bookHistoryViewSource.View.MoveCurrentToFirst();
         }
     }
 }

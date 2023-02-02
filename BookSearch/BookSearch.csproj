@@ -93,7 +93,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>infosys202215DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="infosys202215DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="infosys202215DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RakutenApi.cs" />
+    <Compile Include="RegistWindow.xaml.cs">
+      <DependentUpon>RegistWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchConnect.cs" />
     <Compile Include="SearchResult.xaml.cs">
       <DependentUpon>SearchResult.xaml</DependentUpon>
@@ -129,6 +142,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,6 +189,28 @@
     </None>
     <None Include="infosys202215DataSet.xss">
       <DependentUpon>infosys202215DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="infosys202215DataSet1.xsc">
+      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="infosys202215DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>infosys202215DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="infosys202215DataSet1.xss">
+      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="infosys202215DataSet2.xsc">
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="infosys202215DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>infosys202215DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="infosys202215DataSet2.xss">
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

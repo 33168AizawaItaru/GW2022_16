@@ -11,6 +11,8 @@
     <Window.Resources>
         <local:infosys202215DataSet x:Key="infosys202215DataSet"/>
         <CollectionViewSource x:Key="bookMarkViewSource" Source="{Binding BookMark, Source={StaticResource infosys202215DataSet}}"/>
+        <local:infosys202215DataSet1 x:Key="infosys202215DataSet1"/>
+        <CollectionViewSource x:Key="bookHistoryViewSource" Source="{Binding BookHistory, Source={StaticResource infosys202215DataSet1}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource bookMarkViewSource}">
         <Grid.RowDefinitions>

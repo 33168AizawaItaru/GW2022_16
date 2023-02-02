@@ -49,5 +49,12 @@ namespace BookSearch
                 InputPass.Clear();
             }
         }
+
+        private void newRegi_Click(object sender, RoutedEventArgs e)
+        {
+            RegistWindow rw = new RegistWindow();
+            rw.Show();
+            LoginWindow1.Close();
+        }
     }
 }
