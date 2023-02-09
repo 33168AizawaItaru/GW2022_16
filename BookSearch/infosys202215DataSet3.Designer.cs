@@ -20,9 +20,9 @@ namespace BookSearch {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("infosys202215DataSet2")]
+    [global::System.Xml.Serialization.XmlRootAttribute("infosys202215DataSet3")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class infosys202215DataSet2 : global::System.Data.DataSet {
+    public partial class infosys202215DataSet3 : global::System.Data.DataSet {
         
         private UserLoginDataTable tableUserLogin;
         
@@ -30,7 +30,7 @@ namespace BookSearch {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public infosys202215DataSet2() {
+        public infosys202215DataSet3() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace BookSearch {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected infosys202215DataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected infosys202215DataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace BookSearch {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            infosys202215DataSet2 cln = ((infosys202215DataSet2)(base.Clone()));
+            infosys202215DataSet3 cln = ((infosys202215DataSet3)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace BookSearch {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "infosys202215DataSet2";
+            this.DataSetName = "infosys202215DataSet3";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/infosys202215DataSet2.xsd";
+            this.Namespace = "http://tempuri.org/infosys202215DataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableUserLogin = new UserLoginDataTable();
@@ -225,7 +225,7 @@ namespace BookSearch {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            infosys202215DataSet2 ds = new infosys202215DataSet2();
+            infosys202215DataSet3 ds = new infosys202215DataSet3();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -408,7 +408,7 @@ namespace BookSearch {
                 this.columnUserPass = new global::System.Data.DataColumn("UserPass", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserPass);
                 this.columnUserId.AllowDBNull = false;
-                this.columnUserId.MaxLength = 4;
+                this.columnUserId.MaxLength = 2147483647;
                 this.columnUserPass.AllowDBNull = false;
                 this.columnUserPass.MaxLength = 16;
             }
@@ -478,7 +478,7 @@ namespace BookSearch {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                infosys202215DataSet2 ds = new infosys202215DataSet2();
+                infosys202215DataSet3 ds = new infosys202215DataSet3();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -609,7 +609,7 @@ namespace BookSearch {
         }
     }
 }
-namespace BookSearch.infosys202215DataSet2TableAdapters {
+namespace BookSearch.infosys202215DataSet3TableAdapters {
     
     
     /// <summary>
@@ -740,8 +740,8 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[UserLogin] ([UserId], [UserPass]) VALUES (@UserId, @UserPass)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserPass", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserPass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserPass", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserPass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -765,7 +765,7 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(infosys202215DataSet2.UserLoginDataTable dataTable) {
+        public virtual int Fill(infosys202215DataSet3.UserLoginDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -778,9 +778,9 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual infosys202215DataSet2.UserLoginDataTable GetData() {
+        public virtual infosys202215DataSet3.UserLoginDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            infosys202215DataSet2.UserLoginDataTable dataTable = new infosys202215DataSet2.UserLoginDataTable();
+            infosys202215DataSet3.UserLoginDataTable dataTable = new infosys202215DataSet3.UserLoginDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -788,14 +788,14 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(infosys202215DataSet2.UserLoginDataTable dataTable) {
+        public virtual int Update(infosys202215DataSet3.UserLoginDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(infosys202215DataSet2 dataSet) {
+        public virtual int Update(infosys202215DataSet3 dataSet) {
             return this.Adapter.Update(dataSet, "UserLogin");
         }
         
@@ -939,7 +939,7 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(infosys202215DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(infosys202215DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._userLoginTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.UserLogin.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -958,7 +958,7 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(infosys202215DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(infosys202215DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._userLoginTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.UserLogin.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -976,7 +976,7 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(infosys202215DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(infosys202215DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._userLoginTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.UserLogin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1018,7 +1018,7 @@ namespace BookSearch.infosys202215DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(infosys202215DataSet2 dataSet) {
+        public virtual int UpdateAll(infosys202215DataSet3 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

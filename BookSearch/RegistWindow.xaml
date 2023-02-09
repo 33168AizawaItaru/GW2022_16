@@ -8,8 +8,8 @@
         ResizeMode="NoResize"
         Title="RegistWindow" Height="350" Width="300" WindowStyle="None" Loaded="Regist_Loaded">
     <Window.Resources>
-        <local:infosys202215DataSet2 x:Key="infosys202215DataSet2"/>
-        <CollectionViewSource x:Key="userLoginViewSource" Source="{Binding UserLogin, Source={StaticResource infosys202215DataSet2}}"/>
+        <local:infosys202215DataSet3 x:Key="infosys202215DataSet3"/>
+        <CollectionViewSource x:Key="userLoginViewSource" Source="{Binding UserLogin, Source={StaticResource infosys202215DataSet3}}"/>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource userLoginViewSource}">
@@ -34,9 +34,9 @@
         <TextBox x:Name="name" Grid.Row="1" Height="25" Width="200" Margin="50,20,0,0"
                  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="11" FontFamily="Yu Gothic"
                  BorderThickness="1,1,1,1" InputMethod.IsInputMethodEnabled="False"/>
-        <Label Content="半角英字、数字で入力してください" Grid.Row="1" Margin="50,43,0,0"
-               VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="11" FontFamily="Yu Gothic"
-               Height="23" Width="185"/>
+        <Label Content="半角英字、数字、記号で入力してください" Grid.Row="1" Margin="50,43,0,0"
+               VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="10.5" FontFamily="Yu Gothic"
+               Height="23" Width="205"/>
 
         <Label Content="〈パスワード〉" Grid.Row="1" Margin="50,0,0,103"
                VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="11" FontFamily="Yu Gothic"
@@ -47,22 +47,27 @@
         <TextBox x:Name="passHide" Grid.Row="1" Height="25" Width="200" Margin="50,0,0,80"
                  VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="11" FontFamily="Yu Gothic"
                  BorderThickness="1,1,1,1" Visibility="Hidden"/>
-        <Label Content="半角英字、数字を組み合わせて8文字以上、16文字"
+        <Label Content="半角英字、数字、記号で"
                Grid.Row="1" Margin="50,0,0,60"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"
-               FontSize="11" FontFamily="Yu Gothic" Height="23" Width="200"/>
-        <Label Content="内で入力してください"
+               FontSize="10.5" FontFamily="Yu Gothic" Height="23" Width="200"/>
+        <Label Content="8文字以上、16文字内で入力してください"
                Grid.Row="1" Margin="50,0,0,48"
                VerticalAlignment="Bottom" HorizontalAlignment="Left"
-               FontSize="11" FontFamily="Yu Gothic" Height="23" Width="200"/>
+               FontSize="10.5" FontFamily="Yu Gothic" Height="23" Width="205"/>
         
-        <PasswordBox x:Name="confirm" Grid.Row="1" Height="25" Width="200"
+        <PasswordBox x:Name="rePassDenote" Grid.Row="1" Height="25" Width="200"
                      FontSize="11" FontFamily="Yu Gothic" Margin="0,0,0,25"
                      VerticalAlignment="Bottom" BorderThickness="1,1,1,1"/>
 
-        <TextBox Name="denote" Height="25" Width="200" Grid.Row="1" Margin="0,0,0,25"
+        <TextBox Name="rePassHide" Height="25" Width="200" Grid.Row="1" Margin="0,0,0,25"
                  VerticalAlignment="Bottom" BorderThickness="1,1,1,1"
                  Visibility="Hidden"/>
+        
+        <Label Content="確認"
+               Grid.Row="1" Margin="20,0,0,30"
+               VerticalAlignment="Bottom" HorizontalAlignment="Left"
+               FontSize="10.5" FontFamily="Yu Gothic" Height="21" Width="30"/>
 
         <Button x:Name="hide" Grid.Row="1" Height="25" Width="25" Margin="0,0,20,25"
                 VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="hide_Click">

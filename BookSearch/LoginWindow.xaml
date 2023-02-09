@@ -6,36 +6,45 @@
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="LoginWindow" Height="330" Width="350" WindowStyle="None">
-    
-    <Grid>
+        Title="LoginWindow" Height="330" Width="350" WindowStyle="None" Loaded="LoginWindow1_Loaded">
+    <Window.Resources>
+        <local:infosys202215DataSet3 x:Key="infosys202215DataSet3"/>
+        <CollectionViewSource x:Key="userLoginViewSource" Source="{Binding UserLogin, Source={StaticResource infosys202215DataSet3}}"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource userLoginViewSource}">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="170"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        
+
         <Frame NavigationUIVisibility="Hidden" Name="myFrame" Width="340" />
         <Label Grid.Row="0" Content="Login" FontSize="50" Foreground="#FF4D00F3" Height="60" Width="140" Margin="101,40,101,0"
                VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="HGPSoeiKakupoptai" Background="White"/>
-        
-        <StackPanel Grid.Row="1" Height="90" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <StackPanel Grid.Row="1" Height="110" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox Name="InputId" Background="AliceBlue"
                      Height="30" Width="200" FontSize="17"
-                     VerticalAlignment="Top" Text="1111"/>
+                     VerticalAlignment="Top"/>
             <PasswordBox x:Name="InputPass" Background="AliceBlue"
                          Height="30" FontSize="17" 
-                         Margin="0,30" Password="1111"/>
+                         Margin="0,50,0,0"/>
         </StackPanel>
-        
+
+        <Label Content="ユーザー名" Grid.Row="1" Margin="80,5,0,0" FontFamily="Yu Gothic"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="パスワード" Grid.Row="1" Margin="80,85,0,0" FontFamily="Yu Gothic"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
         <Button Grid.Row="2" Name="Return" Content="戻る"
                 Height="30" Width="55" FontSize="13" Margin="10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click"/>
         <Button Grid.Row="2" Name="Login" Content="ログイン" 
                 Height="30" Width="70" FontSize="13" Margin="10"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Login_Click"/>
-        <Button Grid.Row="2" Name="newRegi" Content="新規登録"
-                Height="30" Width="85" FontSize="13" Margin="10"
+        <Button Grid.Row="1" Name="newRegi" Content="新規登録" Background="SkyBlue" Foreground="Black"
+                Height="30" Width="85" FontSize="13" Margin="130,0,130,40" Grid.RowSpan="2"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="newRegi_Click"/>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,10 @@ namespace BookSearch
     /// </summary>
     public partial class LoginWindow : Window
     {
+        infosys202215DataSet3 infosys202215DataSet3;
+        infosys202215DataSet3TableAdapters.UserLoginTableAdapter UserLoginTableAdapter;
+        CollectionViewSource userLoginViewSource;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -36,17 +41,28 @@ namespace BookSearch
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            var num = "1111";
+            DataTable dTable;
+            dTable = infosys202215DataSet3.Tables["UserLogin"];
 
-            if (InputId.Text == num && InputPass.Password == num)
+            
+            foreach (DataRow item in dTable.Rows)
             {
-                MenuWindow menu = new MenuWindow();
-                menu.Show();
-                LoginWindow1.Close();
-            } else
-            {
-                MessageBox.Show("ID、もしくはパスワードが違います。");
-                InputPass.Clear();
+                Console.WriteLine(item["UserId"].ToString(),
+                    item["UserPass"].ToString());
+
+                if (InputId.Text == item["UserId"].ToString() && InputPass.Password == item["UserPass"].ToString())
+                {
+                    MenuWindow menu = new MenuWindow();
+                    menu.Show();
+                    LoginWindow1.Close();
+                    return;
+                }
+
+                if (item == infosys202215DataSet3.UserLogin.Last())
+                {
+                    MessageBox.Show("ユーザー名、もしくはパスワードが違います。");
+                    InputPass.Clear();
+                }
             }
         }
 
@@ -55,6 +71,17 @@ namespace BookSearch
             RegistWindow rw = new RegistWindow();
             rw.Show();
             LoginWindow1.Close();
+        }
+
+        private void LoginWindow1_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            infosys202215DataSet3 = ((BookSearch.infosys202215DataSet3)(this.FindResource("infosys202215DataSet3")));
+            // テーブル UserLogin にデータを読み込みます。必要に応じてこのコードを変更できます。
+            UserLoginTableAdapter = new BookSearch.infosys202215DataSet3TableAdapters.UserLoginTableAdapter();
+            UserLoginTableAdapter.Fill(infosys202215DataSet3.UserLogin);
+            userLoginViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userLoginViewSource")));
+            userLoginViewSource.View.MoveCurrentToFirst();
         }
     }
 }

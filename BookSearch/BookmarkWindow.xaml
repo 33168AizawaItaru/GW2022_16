@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="BookmarkWindow" Height="350" Width="800" WindowStyle="None" Loaded="Bookmark_Loaded">
+        Title="BookmarkWindow" Height="390" Width="800" WindowStyle="None" Loaded="Bookmark_Loaded">
     <Window.Resources>
         <local:infosys202215DataSet x:Key="infosys202215DataSet"/>
         <CollectionViewSource x:Key="bookMarkViewSource" Source="{Binding BookMark, Source={StaticResource infosys202215DataSet}}"/>
@@ -17,10 +17,15 @@
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
         <Button Name="delete" Content="削除" Height="30" Width="60" Margin="0,0,10,10"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"/>
-        <DataGrid x:Name="bookMarkDataGrid" Height="280" Width="780" Margin="0,20,0,0"
+
+        <Label Content="全てのユーザーのブックマーク" Margin="30,10,0,0"
+               VerticalAlignment="Top" HorizontalAlignment="Left"
+               FontSize="20"/>
+
+        <DataGrid x:Name="bookMarkDataGrid" Height="280" Width="780" Margin="0,50,0,0"
                   HorizontalAlignment="Center" VerticalAlignment="Top" EnableRowVirtualization="True"
                   ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected"
-                  AutoGenerateColumns="False" SelectionMode="Single"
+                  AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="auto" IsReadOnly="True"/>

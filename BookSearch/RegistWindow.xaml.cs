@@ -21,8 +21,8 @@ namespace BookSearch
     /// </summary>
     public partial class RegistWindow : Window
     {
-        infosys202215DataSet2 infosys202215DataSet2;
-        infosys202215DataSet2TableAdapters.UserLoginTableAdapter UserLoginTableAdapter;
+        infosys202215DataSet3 infosys202215DataSet3;
+        infosys202215DataSet3TableAdapters.UserLoginTableAdapter UserLoginTableAdapter;
         CollectionViewSource userLoginViewSource;
 
         public RegistWindow()
@@ -39,33 +39,67 @@ namespace BookSearch
             Regist.Close();
         }
 
+        private void passClear()
+        {
+            passDenote.Password = "";
+            passHide.Text = "";
+            rePassDenote.Password = "";
+            rePassHide.Text = "";
+        }
+
         private void regist_Click(object sender, RoutedEventArgs e)
         {
-            string str = @"/[a-z]/";
-            string num = @"/[0-9]/";
+            string str = @"[a-z\d-.]+";
+            DataRow dr = (DataRow)infosys202215DataSet3.UserLogin.NewRow();
 
-            if (!(name.Text == null))
+            DataTable dTable;
+            dTable = infosys202215DataSet3.Tables["UserLogin"];
+
+            if (!(name.Text == null && passDenote.Password == null && rePassDenote.Password == null))
             {
                 if (passDenote.Password.Length >= 8 && passDenote.Password.Length <= 16)
                 {
-                    if (Regex.IsMatch(name.Text, str))
+                    if (Regex.IsMatch(name.Text, str, RegexOptions.IgnoreCase) && Regex.IsMatch(passDenote.Password, str, RegexOptions.IgnoreCase))
                     {
-                        if (Regex.IsMatch(passDenote.Password, str) && Regex.IsMatch(passDenote.Password, num))
+                        if (passDenote.Password == rePassDenote.Password || passHide.Text == rePassHide.Text)
                         {
-                            if (!(name.Text.Contains(" ")) && !(passDenote.Password.Contains(" ")))
+                            foreach (DataRow dtRow in dTable.Rows)
                             {
-
+                                if (!(name.Text == dtRow[0].ToString()) && !(passDenote.Password == dtRow[1].ToString()))
+                                {
+                                    dr[0] = name.Text;
+                                    dr[1] = passDenote.Password;
+                                    infosys202215DataSet3.UserLogin.Rows.Add(dr);
+                                    UserLoginTableAdapter.Update(infosys202215DataSet3.UserLogin);
+                                } else
+                                {
+                                    MessageBox.Show("既に存在しています。");
+                                    passClear();
+                                    break;
+                                }
                             }
+                        } else
+                        {
+                            MessageBox.Show("パスワードが一致していません。");
+                            passClear();
                         }
+                    } else
+                    {
+                        MessageBox.Show("半角英字、数字、記号で入力してください。");
+                        passClear();
                     }
+                } else
+                {
+                    MessageBox.Show("文字数が足りてる、又は多くなっています。");
+                    passClear();
                 }
+            } else
+            {
+                MessageBox.Show("ユーザー名かパスワードが入力されていません。");
+                passClear();
             }
 
-            //DataRow dr = (DataRow)infosys202215DataSet2.UserLogin.NewRow();
-            //dr[1] = name.Text;
-            //dr[2] = passDenote.Password;
-            //infosys202215DataSet2.UserLogin.Rows.Add(dr);
-            //UserLoginTableAdapter.Update(infosys202215DataSet2.UserLogin);
+
         }
 
         private void hide_Click(object sender, RoutedEventArgs e)
@@ -82,26 +116,26 @@ namespace BookSearch
                 passDenote.Password = passHide.Text;
             }
 
-            if (confirm.Visibility == Visibility.Visible)
+            if (rePassDenote.Visibility == Visibility.Visible)
             {
-                denote.Visibility = Visibility.Visible;
-                confirm.Visibility = Visibility.Hidden;
-                denote.Text = confirm.Password;
+                rePassHide.Visibility = Visibility.Visible;
+                rePassDenote.Visibility = Visibility.Hidden;
+                rePassHide.Text = rePassDenote.Password;
             } else
             {
-                confirm.Visibility = Visibility.Visible;
-                denote.Visibility = Visibility.Hidden;
-                confirm.Password = denote.Text;
+                rePassDenote.Visibility = Visibility.Visible;
+                rePassHide.Visibility = Visibility.Hidden;
+                rePassDenote.Password = rePassHide.Text;
             }
         }
 
         private void Regist_Loaded(object sender, RoutedEventArgs e)
         {
 
-            infosys202215DataSet2 = ((BookSearch.infosys202215DataSet2)(this.FindResource("infosys202215DataSet2")));
+            infosys202215DataSet3 = ((BookSearch.infosys202215DataSet3)(this.FindResource("infosys202215DataSet3")));
             // テーブル UserLogin にデータを読み込みます。必要に応じてこのコードを変更できます。
-            UserLoginTableAdapter = new BookSearch.infosys202215DataSet2TableAdapters.UserLoginTableAdapter();
-            UserLoginTableAdapter.Fill(infosys202215DataSet2.UserLogin);
+            UserLoginTableAdapter = new BookSearch.infosys202215DataSet3TableAdapters.UserLoginTableAdapter();
+            UserLoginTableAdapter.Fill(infosys202215DataSet3.UserLogin);
             userLoginViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userLoginViewSource")));
             userLoginViewSource.View.MoveCurrentToFirst();
         }

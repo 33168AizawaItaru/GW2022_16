@@ -98,10 +98,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="infosys202215DataSet2.Designer.cs">
+    <Compile Include="infosys202215DataSet3.cs">
+      <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="infosys202215DataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
+      <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="RakutenApi.cs" />
     <Compile Include="RegistWindow.xaml.cs">
@@ -201,16 +204,16 @@
     <None Include="infosys202215DataSet1.xss">
       <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="infosys202215DataSet2.xsc">
-      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
+    <None Include="infosys202215DataSet3.xsc">
+      <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>
     </None>
-    <None Include="infosys202215DataSet2.xsd">
+    <None Include="infosys202215DataSet3.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>infosys202215DataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>infosys202215DataSet3.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="infosys202215DataSet2.xss">
-      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
+    <None Include="infosys202215DataSet3.xss">
+      <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
