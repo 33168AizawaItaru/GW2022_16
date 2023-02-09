@@ -6,21 +6,27 @@
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="HistoryWindow" Height="350" Width="800" WindowStyle="None" Loaded="History_Loaded">
+        Title="HistoryWindow" Height="380" Width="800" WindowStyle="None" Loaded="History_Loaded">
     <Window.Resources>
-        <local:infosys202215DataSet1 x:Key="infosys202215DataSet1"/>
-        <CollectionViewSource x:Key="bookHistoryViewSource" Source="{Binding BookHistory, Source={StaticResource infosys202215DataSet1}}"/>
+        <local:infosys202215DataSet2 x:Key="infosys202215DataSet2"/>
+        <CollectionViewSource x:Key="bookHistoryViewSource" Source="{Binding BookHistory, Source={StaticResource infosys202215DataSet2}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource bookHistoryViewSource}">
         <Button Name="return" Content="戻る" Height="30" Width="60" Margin="10,0,0,10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
         <Button Name="delete" Content="削除" Height="30" Width="60" Margin="0,0,10,10"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"/>
-        <DataGrid x:Name="bookHistoryDataGrid" Height="280" Width="780" Margin="0,20,0,0"
+
+        <Label Content="全てのユーザーの履歴" Margin="30,10,0,0"
+               VerticalAlignment="Top" HorizontalAlignment="Left"
+               FontSize="20"/>
+
+        <DataGrid x:Name="bookHistoryDataGrid" Height="280" Width="780" Margin="0,50,0,0"
                   HorizontalAlignment="Center" VerticalAlignment="Top" EnableRowVirtualization="True"
-                  ItemsSource="{Binding}" AutoGenerateColumns="False"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True"
                   RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Single">
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="userIdColumn" Binding="{Binding UserId}" Header="ユーザー" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="subTitleColumn" Binding="{Binding SubTitle}" Header="サブタイトル" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="auto" IsReadOnly="True"/>

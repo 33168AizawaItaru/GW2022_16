@@ -30,12 +30,14 @@ namespace BookSearch
         Rootobject json;
         string pass;
         BitmapImage m_bitmap = null;
+        string passId;
+
         infosys202215DataSet infosys202215DataSet;
         infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
         CollectionViewSource bookMarkViewSource;
 
-        infosys202215DataSet1 infosys202215DataSet1;
-        infosys202215DataSet1TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
+        infosys202215DataSet2 infosys202215DataSet2;
+        infosys202215DataSet2TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
         CollectionViewSource bookHistoryViewSource;
 
         public SearchResult()
@@ -47,6 +49,7 @@ namespace BookSearch
         private void return_Click(object sender, RoutedEventArgs e)
         {
             SearchWindow search = new SearchWindow();
+            search.passUserId(passId);
             search.Show();
             Result.Close();
         }
@@ -54,6 +57,8 @@ namespace BookSearch
         private void add_Click(object sender, RoutedEventArgs e)
         {
             DataRow dr = (DataRow)infosys202215DataSet.BookMark.NewRow();
+
+            dr[0] = passId;
             dr[1] = title.Text;
             dr[2] = subTitle.Text;
             dr[3] = author.Text;
@@ -70,6 +75,11 @@ namespace BookSearch
         public void passTitle(string strData)
         {
             pass = strData;
+        }
+
+        public void passUserId(string strData)
+        {
+            passId = strData;
         }
 
         public string Window2 { get; set; }
@@ -117,14 +127,15 @@ namespace BookSearch
             bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
             bookMarkViewSource.View.MoveCurrentToFirst();
 
-            infosys202215DataSet1 = ((BookSearch.infosys202215DataSet1)(this.FindResource("infosys202215DataSet1")));
+            infosys202215DataSet2 = ((BookSearch.infosys202215DataSet2)(this.FindResource("infosys202215DataSet2")));
             // テーブル BookHistory にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet1TableAdapters.BookHistoryTableAdapter();
-            BookHistoryTableAdapter.Fill(infosys202215DataSet1.BookHistory);
+            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet2TableAdapters.BookHistoryTableAdapter();
+            BookHistoryTableAdapter.Fill(infosys202215DataSet2.BookHistory);
             bookHistoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookHistoryViewSource")));
             bookHistoryViewSource.View.MoveCurrentToFirst();
 
-            DataRow dr = (DataRow)infosys202215DataSet1.BookHistory.NewRow();
+            DataRow dr = (DataRow)infosys202215DataSet2.BookHistory.NewRow();
+            dr[0] = passId;
             dr[1] = title.Text;
             dr[2] = subTitle.Text;
             dr[3] = author.Text;
@@ -134,8 +145,8 @@ namespace BookSearch
             dr[7] = reviewAverage.Text;
             dr[8] = reviewCount.Text;
 
-            infosys202215DataSet1.BookHistory.Rows.Add(dr);
-            BookHistoryTableAdapter.Update(infosys202215DataSet1.BookHistory);
+            infosys202215DataSet2.BookHistory.Rows.Add(dr);
+            BookHistoryTableAdapter.Update(infosys202215DataSet2.BookHistory);
         }
     }
 }

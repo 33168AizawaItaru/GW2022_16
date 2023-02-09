@@ -28,6 +28,7 @@
                   AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"
                   >
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="userIdColumn" Binding="{Binding UserId}" Header="ユーザー" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="subTitleColumn" Binding="{Binding SubTitle}" Header="サブタイトル" Width="auto" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="auto" IsReadOnly="True"/>

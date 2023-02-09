@@ -93,10 +93,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>infosys202215DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="infosys202215DataSet1.Designer.cs">
+    <Compile Include="infosys202215DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="infosys202215DataSet3.cs">
       <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>
@@ -193,16 +193,16 @@
     <None Include="infosys202215DataSet.xss">
       <DependentUpon>infosys202215DataSet.xsd</DependentUpon>
     </None>
-    <None Include="infosys202215DataSet1.xsc">
-      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+    <None Include="infosys202215DataSet2.xsc">
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
     </None>
-    <None Include="infosys202215DataSet1.xsd">
+    <None Include="infosys202215DataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>infosys202215DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>infosys202215DataSet2.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="infosys202215DataSet1.xss">
-      <DependentUpon>infosys202215DataSet1.xsd</DependentUpon>
+    <None Include="infosys202215DataSet2.xss">
+      <DependentUpon>infosys202215DataSet2.xsd</DependentUpon>
     </None>
     <None Include="infosys202215DataSet3.xsc">
       <DependentUpon>infosys202215DataSet3.xsd</DependentUpon>

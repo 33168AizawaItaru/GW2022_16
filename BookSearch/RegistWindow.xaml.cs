@@ -75,7 +75,7 @@ namespace BookSearch
                                 {
                                     MessageBox.Show("既に存在しています。");
                                     passClear();
-                                    break;
+                                    return;
                                 }
                             }
                         } else

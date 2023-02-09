@@ -19,6 +19,8 @@ namespace BookSearch
     /// </summary>
     public partial class MenuWindow : Window
     {
+        string passId;
+
         public MenuWindow()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace BookSearch
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             SearchWindow search = new SearchWindow();
+            search.passUserId(passId);
             search.Show();
             Menu.Close();
         }
@@ -42,6 +45,7 @@ namespace BookSearch
         private void Bookmark_Click(object sender, RoutedEventArgs e)
         {
             BookmarkWindow bookmark = new BookmarkWindow();
+            bookmark.passUserId(passId);
             bookmark.Show();
             Menu.Close();
         }
@@ -49,8 +53,14 @@ namespace BookSearch
         private void History_Click(object sender, RoutedEventArgs e)
         {
             HistoryWindow history = new HistoryWindow();
+            history.passUserId(passId);
             history.Show();
             Menu.Close();
+        }
+
+        public void passUserId(string strData)
+        {
+            passId = strData;
         }
     }
 }

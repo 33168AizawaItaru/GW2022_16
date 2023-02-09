@@ -53,6 +53,7 @@ namespace BookSearch
                 if (InputId.Text == item["UserId"].ToString() && InputPass.Password == item["UserPass"].ToString())
                 {
                     MenuWindow menu = new MenuWindow();
+                    menu.passUserId(InputId.Text);
                     menu.Show();
                     LoginWindow1.Close();
                     return;

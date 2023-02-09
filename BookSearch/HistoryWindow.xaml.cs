@@ -20,8 +20,10 @@ namespace BookSearch
     /// </summary>
     public partial class HistoryWindow : Window
     {
-        infosys202215DataSet1 infosys202215DataSet1;
-        infosys202215DataSet1TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
+        string passId;
+
+        infosys202215DataSet2 infosys202215DataSet2;
+        infosys202215DataSet2TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
         CollectionViewSource bookHistoryViewSource;
 
         public HistoryWindow()
@@ -33,6 +35,7 @@ namespace BookSearch
         private void return_Click(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
+            menu.passUserId(passId);
             menu.Show();
             this.Close();
         }
@@ -43,19 +46,24 @@ namespace BookSearch
             {
                 DataRowView drv = (DataRowView)bookHistoryViewSource.View.CurrentItem;
                 drv.Delete();
-                BookHistoryTableAdapter.Update(infosys202215DataSet1.BookHistory);
+                BookHistoryTableAdapter.Update(infosys202215DataSet2.BookHistory);
             } catch (Exception)
             {
             }
         }
 
+        public void passUserId(string strData)
+        {
+            passId = strData;
+        }
+
         private void History_Loaded(object sender, RoutedEventArgs e)
         {
 
-            infosys202215DataSet1 = ((BookSearch.infosys202215DataSet1)(this.FindResource("infosys202215DataSet1")));
+            infosys202215DataSet2 = ((BookSearch.infosys202215DataSet2)(this.FindResource("infosys202215DataSet2")));
             // テーブル BookHistory にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet1TableAdapters.BookHistoryTableAdapter();
-            BookHistoryTableAdapter.Fill(infosys202215DataSet1.BookHistory);
+            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet2TableAdapters.BookHistoryTableAdapter();
+            BookHistoryTableAdapter.Fill(infosys202215DataSet2.BookHistory);
             bookHistoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookHistoryViewSource")));
             bookHistoryViewSource.View.MoveCurrentToFirst();
         }

@@ -31,6 +31,7 @@ namespace BookSearch
         string dString;
         Rootobject json;
         string title;
+        string passId;
 
         public SearchWindow()
         {
@@ -41,6 +42,7 @@ namespace BookSearch
         private void return_Click(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
+            menu.passUserId(passId);
             menu.Show();
             Search.Close();
         }
@@ -58,7 +60,7 @@ namespace BookSearch
                 dString = wc.DownloadString(url);
                 json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
-                var window = new SearchResult();
+                SearchResult window = new SearchResult();
                 window.title.Text = text.Text;
 
                 for (int i = 0; i < json.hits; i++)
@@ -76,6 +78,7 @@ namespace BookSearch
         private void decision_Click(object sender, RoutedEventArgs e)
         {
             SearchResult sr = new SearchResult();
+            sr.passUserId(passId);
             sr.passTitle(passTitle.Text);
             sr.Show();
             Search.Close();
@@ -100,6 +103,11 @@ namespace BookSearch
                 Book book = (Book)list.SelectedItem;
                 passTitle.Text = book.Title.ToString();
             }
+        }
+
+        public void passUserId(string strData)
+        {
+            passId = strData;
         }
     }
 

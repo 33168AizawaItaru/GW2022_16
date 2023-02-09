@@ -20,6 +20,8 @@ namespace BookSearch
     /// </summary>
     public partial class BookmarkWindow : Window
     {
+        string passId;
+
         infosys202215DataSet infosys202215DataSet;
         infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
         CollectionViewSource bookMarkViewSource;
@@ -33,6 +35,7 @@ namespace BookSearch
         private void return_Click(object sender, RoutedEventArgs e)
         {
             MenuWindow menu = new MenuWindow();
+            menu.passUserId(passId);
             menu.Show();
             this.Close();
         }
@@ -49,7 +52,10 @@ namespace BookSearch
             }
         }
 
-        
+        public void passUserId(string strData)
+        {
+            passId = strData;
+        }
 
         private void Bookmark_Loaded(object sender, RoutedEventArgs e)
         {
