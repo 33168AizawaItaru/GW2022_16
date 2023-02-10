@@ -36,7 +36,7 @@ namespace BookSearch
 
         private void endTile_Click(object sender, RoutedEventArgs e)
         {
-            TitleWindow.Close();
+            Application.Current.Shutdown();
         }
     }
 }

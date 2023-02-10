@@ -6,28 +6,28 @@
         xmlns:local="clr-namespace:BookSearch"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MenuWindow" Height="350" Width="600" WindowStyle="None">
-    <Grid>
+        Title="MenuWindow" Height="300" Width="500" WindowStyle="None">
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="170"/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="295"/>
-            <ColumnDefinition Width="295"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="0" Grid.Row="0" Name="Search" Content="検索"
-                Height="100" Width="200" Margin="20"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
                 VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Search_Click"/>
         <Button Grid.Column="0" Grid.Row="1" Name="History" Content="履歴"
-                Height="100" Width="200" Margin="20"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
                 VerticalAlignment="Top" HorizontalAlignment="Right" Click="History_Click"/>
         <Button Grid.Column="1" Grid.Row="0" Name="Bookmark" Content="ブックマーク"
-                Height="100" Width="200" Margin="20"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
                 VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Bookmark_Click"/>
         <Button Grid.Column="1" Grid.Row="1" Name="Logout" Content="ログアウト"
-                Height="100" Width="200" Margin="20"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Click="Logout_Click"/>
     </Grid>
 </Window>

@@ -63,21 +63,36 @@ namespace BookSearch
                     {
                         if (passDenote.Password == rePassDenote.Password || passHide.Text == rePassHide.Text)
                         {
-                            foreach (DataRow dtRow in dTable.Rows)
+                            try
                             {
-                                if (!(name.Text == dtRow[0].ToString()) && !(passDenote.Password == dtRow[1].ToString()))
+                                foreach (DataRow item in dTable.Rows)
                                 {
-                                    dr[0] = name.Text;
-                                    dr[1] = passDenote.Password;
-                                    infosys202215DataSet3.UserLogin.Rows.Add(dr);
-                                    UserLoginTableAdapter.Update(infosys202215DataSet3.UserLogin);
-                                } else
-                                {
-                                    MessageBox.Show("既に存在しています。");
-                                    passClear();
-                                    return;
+                                    Console.WriteLine(item["UserId"].ToString());
+
+                                    if (name.Text == item["UserId"].ToString())
+                                    {
+                                        MessageBox.Show("既に存在しています。");
+                                        passClear();
+
+                                        return;
+                                    }
+
+                                    if (item == infosys202215DataSet3.UserLogin.Last())
+                                    {
+                                        dr[0] = name.Text;
+                                        dr[1] = passDenote.Password;
+                                        infosys202215DataSet3.UserLogin.Rows.Add(dr);
+                                        UserLoginTableAdapter.Update(infosys202215DataSet3.UserLogin);
+
+                                        LoginWindow lg = new LoginWindow();
+                                        lg.Show();
+                                        this.Close();
+                                    }
                                 }
+                            } catch (Exception)
+                            {
                             }
+                            
                         } else
                         {
                             MessageBox.Show("パスワードが一致していません。");

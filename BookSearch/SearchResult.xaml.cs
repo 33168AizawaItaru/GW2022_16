@@ -87,9 +87,9 @@ namespace BookSearch
         private void Result_Loaded(object sender, RoutedEventArgs e)
         {
             url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + pass + "&applicationId=1074422515641226717";
-
             dString = wc.DownloadString(url);
             json = JsonConvert.DeserializeObject<Rootobject>(dString);
+
 
             try
             {
@@ -103,16 +103,16 @@ namespace BookSearch
                 reviewCount.Text = json.Items[0].Item.reviewCount.ToString();
 
                 var betweenPicture = json.Items[0].Item.largeImageUrl;
-                var url = betweenPicture.Replace("?", "　");
-                var index = url.IndexOf("　");
-                var pictureUrl = url.Substring(0, index);
+                var pUrl = betweenPicture.Replace("?", "　");
+                var index = pUrl.IndexOf("　");
+                var pictureUrl = pUrl.Substring(0, index);
                 var path = pictureUrl;
                 m_bitmap = new BitmapImage();
                 m_bitmap.BeginInit();
                 m_bitmap.UriSource = new Uri(path);
                 m_bitmap.EndInit();
                 picture.Source = m_bitmap;
-            } catch (Exception)
+            } catch (NullReferenceException)
             {
                 MessageBox.Show("検索出来ません");
                 SearchWindow search = new SearchWindow();
