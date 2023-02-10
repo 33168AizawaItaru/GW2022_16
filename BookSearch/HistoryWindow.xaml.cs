@@ -22,8 +22,8 @@ namespace BookSearch
     {
         string passId;
 
-        infosys202215DataSet2 infosys202215DataSet2;
-        infosys202215DataSet2TableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
+        infosys202215DataSet infosys202215DataSet;
+        infosys202215DataSetTableAdapters.BookHistoryTableAdapter BookHistoryTableAdapter;
         CollectionViewSource bookHistoryViewSource;
 
         public HistoryWindow()
@@ -40,18 +40,6 @@ namespace BookSearch
             this.Close();
         }
 
-        private void delete_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                DataRowView drv = (DataRowView)bookHistoryViewSource.View.CurrentItem;
-                drv.Delete();
-                BookHistoryTableAdapter.Update(infosys202215DataSet2.BookHistory);
-            } catch (Exception)
-            {
-            }
-        }
-
         public void passUserId(string strData)
         {
             passId = strData;
@@ -60,12 +48,16 @@ namespace BookSearch
         private void History_Loaded(object sender, RoutedEventArgs e)
         {
 
-            infosys202215DataSet2 = ((BookSearch.infosys202215DataSet2)(this.FindResource("infosys202215DataSet2")));
+            infosys202215DataSet = ((BookSearch.infosys202215DataSet)(this.FindResource("infosys202215DataSet")));
             // テーブル BookHistory にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookHistoryTableAdapter = new BookSearch.infosys202215DataSet2TableAdapters.BookHistoryTableAdapter();
-            BookHistoryTableAdapter.Fill(infosys202215DataSet2.BookHistory);
+            BookHistoryTableAdapter = new BookSearch.infosys202215DataSetTableAdapters.BookHistoryTableAdapter();
+            BookHistoryTableAdapter.Fill(infosys202215DataSet.BookHistory);
             bookHistoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookHistoryViewSource")));
             bookHistoryViewSource.View.MoveCurrentToFirst();
         }
+
+        
+
+        
     }
 }

@@ -22,8 +22,8 @@ namespace BookSearch
     {
         string passId;
 
-        infosys202215DataSet infosys202215DataSet;
-        infosys202215DataSetTableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
+        infosys202215DataSet1 infosys202215DataSet1;
+        infosys202215DataSet1TableAdapters.BookMarkTableAdapter BookMarkTableAdapter;
         CollectionViewSource bookMarkViewSource;
 
         public BookmarkWindow()
@@ -46,9 +46,15 @@ namespace BookSearch
             {
                 DataRowView drv = (DataRowView)bookMarkViewSource.View.CurrentItem;
                 drv.Delete();
-                BookMarkTableAdapter.Update(infosys202215DataSet.BookMark);
+                
             } catch (Exception)
             {
+            }
+            BookMarkTableAdapter.Update(infosys202215DataSet1.BookMark);
+
+            if (bookMarkDataGrid.Items.Count == 0)
+            {
+                delete.IsEnabled = false;
             }
         }
 
@@ -59,10 +65,10 @@ namespace BookSearch
 
         private void Bookmark_Loaded(object sender, RoutedEventArgs e)
         {
-            infosys202215DataSet = ((BookSearch.infosys202215DataSet)(this.FindResource("infosys202215DataSet")));
+            infosys202215DataSet1 = ((BookSearch.infosys202215DataSet1)(this.FindResource("infosys202215DataSet1")));
             // テーブル BookMark にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookMarkTableAdapter = new BookSearch.infosys202215DataSetTableAdapters.BookMarkTableAdapter();
-            BookMarkTableAdapter.Fill(infosys202215DataSet.BookMark);
+            BookMarkTableAdapter = new BookSearch.infosys202215DataSet1TableAdapters.BookMarkTableAdapter();
+            BookMarkTableAdapter.Fill(infosys202215DataSet1.BookMark);
             bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
             bookMarkViewSource.View.MoveCurrentToFirst();
         }

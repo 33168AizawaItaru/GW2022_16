@@ -65,19 +65,18 @@ namespace BookSearch
                         {
                             try
                             {
-                                foreach (DataRow item in dTable.Rows)
+                                foreach (DataRow row in dTable.Rows)
                                 {
-                                    Console.WriteLine(item["UserId"].ToString());
+                                    Console.WriteLine(row["UserId"].ToString());
 
-                                    if (name.Text == item["UserId"].ToString())
+                                    if (name.Text == row["UserId"].ToString())
                                     {
                                         MessageBox.Show("既に存在しています。");
                                         passClear();
-
                                         return;
                                     }
 
-                                    if (item == infosys202215DataSet3.UserLogin.Last())
+                                    if (row == infosys202215DataSet3.UserLogin.Last())
                                     {
                                         dr[0] = name.Text;
                                         dr[1] = passDenote.Password;
@@ -113,8 +112,6 @@ namespace BookSearch
                 MessageBox.Show("ユーザー名かパスワードが入力されていません。");
                 passClear();
             }
-
-
         }
 
         private void hide_Click(object sender, RoutedEventArgs e)

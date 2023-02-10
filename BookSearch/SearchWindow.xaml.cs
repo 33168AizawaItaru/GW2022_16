@@ -77,21 +77,25 @@ namespace BookSearch
 
         private void decision_Click(object sender, RoutedEventArgs e)
         {
-            SearchResult sr = new SearchResult();
-            sr.passUserId(passId);
-            sr.passTitle(passTitle.Text);
-            sr.Show();
-            Search.Close();
+            if (passTitle.Text != "")
+            {
+                SearchResult sr = new SearchResult();
+                sr.passUserId(passId);
+                sr.passTitle(passTitle.Text);
+                sr.Show();
+                Search.Close();
+            }
         }
 
         private void text_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!(text.Text == null))
+            if (!(text.Text == ""))
             {
                 if (list.Items.Count > 0)
                 {
                     list.Items.Clear();
                     books.Clear();
+                    passTitle.Text = "";
                 }
             }
         }
@@ -108,6 +112,11 @@ namespace BookSearch
         public void passUserId(string strData)
         {
             passId = strData;
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

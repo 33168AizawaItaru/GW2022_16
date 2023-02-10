@@ -8,19 +8,17 @@
         ResizeMode="NoResize"
         Title="HistoryWindow" Height="380" Width="800" WindowStyle="None" Loaded="History_Loaded">
     <Window.Resources>
-        <local:infosys202215DataSet2 x:Key="infosys202215DataSet2"/>
-        <CollectionViewSource x:Key="bookHistoryViewSource" Source="{Binding BookHistory, Source={StaticResource infosys202215DataSet2}}"/>
+        <local:infosys202215DataSet x:Key="infosys202215DataSet"/>
+        <CollectionViewSource x:Key="bookHistoryViewSource" Source="{Binding BookHistory, Source={StaticResource infosys202215DataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource bookHistoryViewSource}">
         <Button Name="return" Content="戻る" Height="30" Width="60" Margin="10,0,0,10"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
-        <Button Name="delete" Content="削除" Height="30" Width="60" Margin="0,0,10,10"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"/>
 
         <Label Content="全てのユーザーの履歴" Margin="30,10,0,0"
                VerticalAlignment="Top" HorizontalAlignment="Left"
                FontSize="20"/>
-
+        
         <DataGrid x:Name="bookHistoryDataGrid" Height="280" Width="780" Margin="0,50,0,0"
                   HorizontalAlignment="Center" VerticalAlignment="Top" EnableRowVirtualization="True"
                   ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True"
