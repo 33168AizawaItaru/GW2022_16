@@ -17,17 +17,17 @@
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0" Name="Search" Content="検索"
-                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
+        <Button Grid.Column="0" Grid.Row="0" Name="Search" Content="検索"  BorderBrush="Black" Background="White"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial" Foreground="Black"
                 VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Search_Click"/>
-        <Button Grid.Column="0" Grid.Row="1" Name="History" Content="履歴"
+        <Button Grid.Column="0" Grid.Row="1" Name="History" Content="履歴" Foreground="Black"
                 Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
-                VerticalAlignment="Top" HorizontalAlignment="Right" Click="History_Click"/>
-        <Button Grid.Column="1" Grid.Row="0" Name="Bookmark" Content="ブックマーク"
-                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Click="History_Click" BorderBrush="Black" Background="White"/>
+        <Button Grid.Column="1" Grid.Row="0" Name="Bookmark" Content="ブックマーク"  BorderBrush="Black" Background="White"
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial" Foreground="Black"
                 VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Bookmark_Click"/>
         <Button Grid.Column="1" Grid.Row="1" Name="Logout" Content="ログアウト"
-                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Click="Logout_Click"/>
+                Height="100" Width="200" Margin="20" FontSize="25" FontFamily="Arial" Foreground="Black"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Click="Logout_Click" Background="LightSkyBlue" BorderBrush="Black"/>
     </Grid>
 </Window>

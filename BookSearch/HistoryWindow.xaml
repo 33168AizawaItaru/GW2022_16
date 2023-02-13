@@ -13,7 +13,8 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource bookHistoryViewSource}">
         <Button Name="return" Content="戻る" Height="30" Width="60" Margin="10,0,0,10"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"
+                BorderBrush="Black" Background="White" Foreground="Black"/>
 
         <Label Content="全てのユーザーの履歴" Margin="30,10,0,0"
                VerticalAlignment="Top" HorizontalAlignment="Left"

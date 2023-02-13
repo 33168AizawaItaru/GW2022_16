@@ -110,6 +110,7 @@
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Button Name="add" Content="追加" Grid.Row="4" Height="30" Width="60" Margin="0,0,25,10"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="add_Click"/>
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="add_Click"
+                BorderBrush="Black" Background="#FF87FAF5" Foreground="Black"/>
     </Grid>
 </Window>

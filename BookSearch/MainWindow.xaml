@@ -16,9 +16,9 @@
         <Button Name="login" Content="ログイン" Width="75"
                 FontSize="12" FontFamily="Yu Mincho"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,100,60"
-                Background="LightSkyBlue" Foreground="Black" Click="login_Click"/>
+                Background="#FFFBFFA7" Foreground="Black" Click="login_Click" BorderBrush="Black"/>
         <Button Name="endTile" Content="終了" FontSize="12" Width="75" Margin="100,0,0,60"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Yu Mincho"
-                Background="LightSkyBlue" Foreground="Black" Click="endTile_Click"/>
+                Background="LightSkyBlue" Foreground="Black" Click="endTile_Click" BorderBrush="Black"/>
     </Grid>
 </Window>

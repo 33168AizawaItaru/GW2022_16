@@ -14,9 +14,11 @@
 
     <Grid DataContext="{StaticResource bookMarkViewSource}">
         <Button Name="return" Content="戻る" Height="30" Width="60" Margin="10,0,0,10"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"
+                BorderBrush="Black" Background="White" Foreground="Black"/>
         <Button Name="delete" Content="削除" Height="30" Width="60" Margin="0,0,10,10"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"/>
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="delete_Click"
+                BorderBrush="Black" Background="#FFF1C5C5" Foreground="Black"/>
 
         <Label Content="全てのユーザーのブックマーク" Margin="30,10,0,0"
                VerticalAlignment="Top" HorizontalAlignment="Left"

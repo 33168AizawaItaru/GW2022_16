@@ -20,11 +20,11 @@
         </Grid.RowDefinitions>
 
         <Button Grid.Row="2" Name="Return" Content="戻る"
-                Height="30" Width="55" FontSize="13" Margin="10"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click"/>
+                Height="30" Width="55" FontSize="13" Margin="10" Foreground="Black"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click" Background="White" BorderBrush="Black"/>
         <Button Grid.Row="2" Name="regist" Content="登録"
-                Height="30" Width="58" FontSize="13" Margin="10"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="regist_Click"/>
+                Height="30" Width="58" FontSize="13" Margin="10" Foreground="Black"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="regist_Click" Background="#FFCAF0FF" BorderBrush="Black"/>
         <Label Content="新規登録" Grid.Row="0" FontSize="30"
                  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 

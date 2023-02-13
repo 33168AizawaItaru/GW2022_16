@@ -38,13 +38,13 @@
                HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Button Grid.Row="2" Name="Return" Content="戻る"
-                Height="30" Width="55" FontSize="13" Margin="10"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click"/>
+                Height="30" Width="55" FontSize="13" Margin="10" Foreground="Black"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click" Background="White" BorderBrush="Black"/>
         <Button Grid.Row="2" Name="Login" Content="ログイン"
-                Height="30" Width="70" FontSize="13" Margin="10"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Login_Click" Background="#FF39CBAA"/>
-        <Button Grid.Row="1" Name="newRegi" Content="新規登録" Background="SkyBlue" Foreground="Black"
+                Height="30" Width="70" FontSize="13" Margin="10" Foreground="Black"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Login_Click" Background="#FFFBFFA7" BorderBrush="Black"/>
+        <Button Grid.Row="1" Name="newRegi" Content="新規登録" Background="#FFCAF0FF" Foreground="Black"
                 Height="30" Width="85" FontSize="13" Margin="130,0,130,40" Grid.RowSpan="2"
-                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="newRegi_Click"/>
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="newRegi_Click" BorderBrush="Black"/>
     </Grid>
 </Window>
