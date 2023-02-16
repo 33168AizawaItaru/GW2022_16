@@ -30,6 +30,7 @@ namespace BookSearch
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            
         }
 
         private void return_Click(object sender, RoutedEventArgs e)
@@ -71,6 +72,19 @@ namespace BookSearch
             BookMarkTableAdapter.Fill(infosys202215DataSet1.BookMark);
             bookMarkViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("bookMarkViewSource")));
             bookMarkViewSource.View.MoveCurrentToFirst();
+
+            if (bookMarkDataGrid.Items.Count == 0)
+            {
+                delete.IsEnabled = false;
+            } else
+            {
+                delete.IsEnabled = true;
+            }
+        }
+
+        private void bookMarkDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

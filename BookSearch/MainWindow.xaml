@@ -7,17 +7,20 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="TitleWindow" x:Class="BookSearch.MainWindow"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="350" Width="500" WindowStyle="None">
-    <Grid Background="AliceBlue">
-        <Label Content="本管理アプリ" FontFamily="Arial" FontSize="45" Margin="0,100,0,0"
+        Title="MainWindow" Height="500" Width="500" WindowStyle="None" Background="AliceBlue">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="tosyokan.png"/>
+        </Grid.Background>
+        <Label Content="本管理アプリ" FontFamily="Arial" FontSize="45" Margin="0,120,0,0"
                HorizontalAlignment="Center" VerticalAlignment="Top"
-               FontWeight="Bold" Height="55" Width="245"/>
-        
+               FontWeight="Bold" Height="55" Width="245" Background="AliceBlue" Foreground="Black"/>
+
         <Button Name="login" Content="ログイン" Width="75"
                 FontSize="12" FontFamily="Arial"
-                HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,100,60"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,110"
                 Background="#FFFBFFA7" Foreground="Black" Click="login_Click" BorderBrush="Black"/>
-        <Button Name="endTile" Content="終了" FontSize="12" Width="75" Margin="100,0,0,60"
+        <Button Name="endTile" Content="終了" FontSize="12" Width="75" Margin="0,0,0,50"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Arial"
                 Background="LightSkyBlue" Foreground="Black" Click="endTile_Click" BorderBrush="Black"/>
     </Grid>

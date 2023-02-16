@@ -104,7 +104,7 @@ namespace BookSearch
                     }
                 } else
                 {
-                    MessageBox.Show("文字数が足りてる、又は多くなっています。");
+                    MessageBox.Show("文字数が足りていない、又は多くなっています。");
                     passClear();
                 }
             } else

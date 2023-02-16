@@ -27,7 +27,7 @@
         <DataGrid x:Name="bookMarkDataGrid" Height="280" Width="780" Margin="0,50,0,0"
                   HorizontalAlignment="Center" VerticalAlignment="Top" EnableRowVirtualization="True"
                   ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected"
-                  AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"
+                  AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" SelectionChanged="bookMarkDataGrid_SelectionChanged"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="userIdColumn" Binding="{Binding UserId}" Header="ユーザー" Width="auto" IsReadOnly="True"/>
