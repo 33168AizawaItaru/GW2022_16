@@ -30,7 +30,6 @@ namespace BookSearch
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
         }
 
         private void return_Click(object sender, RoutedEventArgs e)
