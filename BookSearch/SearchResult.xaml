@@ -104,7 +104,8 @@
         </Label>
 
         <Button Name="return" Content="戻る" Grid.Row="4" Height="30" Width="60" Margin="10,0,0,10"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"/>
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="return_Click"
+                BorderBrush="Black" Background="White" Foreground="Black"/>
 
         <Label Content="ブックマークに" Grid.Row="4" Height="25" Width="90" Margin="0,0,10,38"
                FontSize="12" FontFamily="Yu Gothic" HorizontalContentAlignment="Right"

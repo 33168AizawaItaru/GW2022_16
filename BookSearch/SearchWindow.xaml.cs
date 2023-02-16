@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,6 +33,7 @@ namespace BookSearch
         Rootobject json;
         string title;
         string passId;
+        string str = @"[a-z\d-.]+";
 
         public SearchWindow()
         {
@@ -56,21 +58,24 @@ namespace BookSearch
                 MessageBox.Show("タイトルが入力されていません。");
             }else
             {
-                url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + title + "&applicationId=1074422515641226717";
-                dString = wc.DownloadString(url);
-                json = JsonConvert.DeserializeObject<Rootobject>(dString);
-
-                SearchResult window = new SearchResult();
-                window.title.Text = text.Text;
-
-                for (int i = 0; i < json.hits; i++)
+                try
                 {
-                    books.Add(new Book() { Title = json.Items[i].Item.title });
-                }
+                    url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json" + "&title=" + title + "&applicationId=1074422515641226717";
+                    dString = wc.DownloadString(url);
+                    json = JsonConvert.DeserializeObject<Rootobject>(dString);
 
-                foreach (var item in books)
+                    for (int i = 0; i < json.hits; i++)
+                    {
+                        books.Add(new Book() { Title = json.Items[i].Item.title });
+                    }
+
+                    foreach (var item in books)
+                    {
+                        list.Items.Add(item);
+                    }
+                } catch (Exception)
                 {
-                    list.Items.Add(item);
+                    MessageBox.Show("使えない文字があります。");
                 }
             }
         }

@@ -110,7 +110,10 @@ namespace BookSearch
                     itemPrice.Text = json.Items[0].Item.itemPrice.ToString();
                     reviewAverage.Text = json.Items[0].Item.reviewAverage;
                     reviewCount.Text = json.Items[0].Item.reviewCount.ToString();
-
+                    if (subTitle.Text == "")
+                    {
+                        subTitle.Text = "データがありません";
+                    }
                     var betweenPicture = json.Items[0].Item.largeImageUrl;
                     var pUrl = betweenPicture.Replace("?", "　");
                     var index = pUrl.IndexOf("　");
